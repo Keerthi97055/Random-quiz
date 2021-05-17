@@ -1,0 +1,202 @@
+body{
+    font-size: 20px;
+    font-family: sans-serif;
+    color: #333;
+    text-align: center;
+    background-image: url(chalkboard.jpg);
+}
+
+h1 {
+    display: flex;
+    text-align: center;
+    font-style: normal;
+    font-size: 70px;
+    margin-left: 22%;
+    color: lightgreen;
+}
+
+.quiz-container {
+    position: relative;
+    width: 60%;
+    height: 400px;
+    margin-left: 20%;
+    background-color: bisque;
+    border-radius: 15px;
+    border-color: lime;
+    border-style: dashed;
+    border-width: 5px;
+    box-decoration-break: slice;
+}
+
+.question{
+    font-size: 40px;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: 25px;
+    color: lightslategray;
+}
+
+.choices {
+    display: flex;
+    font-size: 20px;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-style: italic;
+    margin-top: 60px;
+    margin-left: 20px;
+    color: lightslategrey;
+}
+
+label {
+    position: relative;
+    font-size: 35px;
+    font-weight: bold;
+    width: 40%;
+}
+
+label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.customRadio {
+    position: absolute;
+    top: 5px;
+    bottom: 0;
+    left: 15px;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: 2px solid lightslategrey;
+    transition: all 0.5s linear;
+}
+
+.customRadio:hover {
+    background-color: lightgreen;
+}
+
+input:checked ~ .customRadio {
+    border: 2px solid rgb(255, 208, 0);
+    background-color: rgb(216, 80, 1);
+}
+
+/* Style checkmark */
+label .customRadio::after {
+    content: "";
+    position: absolute;
+    opacity: 0;
+    left: 5px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: solid rgb(255, 208, 0);
+    background-color: rgb(255, 208, 0);
+    -webkit-transition: all 1s linear;
+    transition: all 0.3s linear;
+}
+
+/* Show checkmark when checked */
+input:checked ~ .customRadio::after {
+    opacity: 1;
+}
+
+#progress-wrap {
+    position: relative;
+    border: 3px solid lightgreen;
+    width: 45%;
+    height: 10px;
+    border-radius: 20px;
+    margin-top: 3%;
+    margin-left: 27%;
+}
+
+#progress-bar {
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background-color: lightgreen;
+    border-radius: 20px;
+    top: 0;
+    bottom: 0;
+    transition: 0.3s width linear;
+}
+
+button{
+    font-family: "Bahiana",sans-serif;
+    font-size: 20px;
+    background-color: lightyellow;
+    color: rgb(216, 80, 1);
+    border: 0px;
+    border-radius: 25px;
+    padding: 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    outline: none;
+    margin-top: 25px;
+    -webkit-box-shadow: 0px 7px 8px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 7px 8px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 7px 8px 0px rgba(0,0,0,0.5);
+}
+
+button:hover{
+    transform-origin: bottom;
+    transform: scaleY(0.95) translateY(1.5px);
+}
+
+button:active {
+    transform-origin: bottom;
+    transform: scaleY(0.89) translateY(1.3px);
+}
+
+#results {
+    font-size: 25px;
+    color: lightsalmon;
+}
+
+.slide{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  .active-slide{
+    opacity: 1;
+    z-index: 2;
+  }
+
+  @media screen and (max-width: 1000px) {
+      h1 {
+          font-size: 40px;
+      }
+
+      #header {
+          font-size: 70px;
+      }
+
+      .question {
+          font-size: 35px;
+      }
+  }
+
+@media screen and (max-width: 750px) {
+    label {
+        width: 60%;
+    }
+
+    #progress-wrap {
+        margin-top: 50px;
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    label {
+        width: 100%;
+    }
+}
